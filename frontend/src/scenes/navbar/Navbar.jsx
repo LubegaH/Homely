@@ -45,6 +45,11 @@ const Navbar = () => {
 
   const fullName = user ? `${user.firstName} ${user.lastName}` : '';
 
+  const logOut = () => {
+    dispatch(setLogout());
+    navigate('/');
+  };
+
   return (
     <FlexBetween padding='1rem 6%' backgroundColor={alt}>
       <FlexBetween gap='1.7rem'>
@@ -185,9 +190,7 @@ const Navbar = () => {
                 <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>
-                <MenuItem onClick={() => dispatch(setLogout())}>
-                  Log Out
-                </MenuItem>
+                <MenuItem onClick={logOut}>Log Out</MenuItem>
               </Select>
             </FormControl>
           </FlexBetween>
